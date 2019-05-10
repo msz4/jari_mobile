@@ -3,35 +3,71 @@ body{
     padding:0;
 }
 
+i{
+    font-size: 2em;
+    padding-top:0.2em;
+    padding-bottom: 0.2em;
+}
 .row{
     margin:0;
 }
 
-.head-card{
-    width:90%;
-    margin-top:1em;
-    padding-top:1em;
-    padding-bottom:1em;
-    background-color:#2D3142;
-    border-radius:5px;
-    color:white;
+.favourite{
+    text-align:right;
+}
+.tags-links{
+    padding-top:2em;
 }
 
-.body-card{
-    background: #EDF4ED;
-    min-width:80vw;
-    max-width:80vw;
-    min-height:60vh;
-    border-radius:5px;
+.fa-tag{
+    font-size:0.8em;
+    padding-right:2px;
+}
+
+.tag{
+    background-color:#2D3142;
+    color:white;
+    font-size:1em;
+    padding:2px 6px 2px 6px;
+    margin:5px 5px 5px 0;
+    border-radius:3px;
+    cursor:pointer;
+    display:inline-block;
+}
+
+.magana{
+    font-size:2em;
+}
+.content{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width:100vw;
+    min-height: 100vh;
+    padding:1em;
+    padding-bottom:2em;
+}
+.header{
+    position: absolute;
+    left: 0;
+    right:0;
+    top: 0;
+    width: 100%;
 }
 
 .footer{
-    position: fixed;
+    position: absolute;
     left: 0;
     right:0;
     bottom: 0;
     width: 100%;
-    background-color: red;
+    background-color:#2D3142;
     color: white;
     text-align: center;
+}
+
+.bt{
+    border-right: 2px solid white;
 }
