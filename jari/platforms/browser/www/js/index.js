@@ -17,23 +17,14 @@ var app = {
         $('#cont').load("menu.html");
     },
 
-    getTags: function(){
-        
-        /*for (var key in ire_ire) {
-            $('#cont').("<div>"+ire_ire[key]['hausa']+"</div>");
-        }
-        console.log($('#cont').innerHTML);
-
-        
-        //for getting tagged sayings
-        /*var sayings = [];
+    loadSayings: function(tag) {
+        let sayings =[];
         for (var key in karin_magana) {
-            if ((karin_magana[key]["tag1"]==""+11+"")||(karin_magana[key]["tag2"]==""+11+"")||(karin_magana[key]["tag3"]==""+11+"")||(karin_magana[key]["tag4"]==""+11+"")||(karin_magana[key]["tag5"]==""+11+"")) {
+            if ((karin_magana[key]["tag1"]==""+tag+"")||(karin_magana[key]["tag2"]==""+tag+"")||(karin_magana[key]["tag3"]==""+tag+"")||(karin_magana[key]["tag4"]==""+tag+"")||(karin_magana[key]["tag5"]==""+tag+"")) {
                 sayings.push(karin_magana[key]["saying"]);
             }
         }
-
-        console.log(sayings);*/
+        console.log(sayings);
     }
 };
 
