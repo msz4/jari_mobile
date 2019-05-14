@@ -14,7 +14,7 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        $('#cont').load("menu.html");
+        $('#index-content').load("menu.html");
     },
 
     loadSayings: function(tag) {

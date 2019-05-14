@@ -24,7 +24,11 @@ i{
     text-align: right;
 }
 
-.favourite{
+#ireire-content{
+    margin-top:4rem;
+}
+
+#favourite{
     text-align:right;
 }
 .tags-links{
@@ -47,42 +51,44 @@ i{
     display:inline-block;
 }
 
-.magana{
+#magana{
     font-size:1.5em;
 }
 
-.content{
+#magana-content{
     box-shadow:0px 1px 10px 0px #dddddd;
     margin:1em;
     padding:1em;
     border-radius:5px;
 }
 
+
+/***********************************************************
+ Global header and footer styles 
+ **********************************************************/
 .header{
-    position: absolute;
+    position: fixed;
+    background-color: #ffffff;
     left: 0;
     right:0;
     top: 0;
     padding-top:0.25em;
     padding-bottom:0.25em;
     width: 100%;
-    border-bottom: 1px solid #dddddd;
+    box-shadow: 0 0.5px 5px 0 rgba(0,0,0,0.3);
     font-size:1.5em;
 }
 
 .footer{
-    position: absolute;
+    position: fixed;
     left: 0;
     right:0;
     bottom: 0;
     padding-top:1em;
     padding-bottom:1em;
     width: 100%;
-    border-top: 1px solid #dddddd;;
+    background-color: #ffffff;
+    box-shadow: 0 0.5px 5px 0 rgba(0,0,0,0.3);
     color: white;
     text-align: center;
-}
-
-.bt{
-    border-right: 2px solid white;
 }

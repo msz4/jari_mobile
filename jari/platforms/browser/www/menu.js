@@ -1,8 +1,8 @@
 document.getElementById("menu_btn").onclick = function(){
-    $('#cont').load("magana.html");
+    $('#index-content').load("magana.html");
 }
 
 document.getElementById("tags_btn").onclick = function(){
-    $('#cont').load("ireire.html");
+    $('#index-content').load("ireire.html");
     //app.getTags();
 }

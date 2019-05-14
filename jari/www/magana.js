@@ -1,3 +1,3 @@
 document.getElementById("back_btn").onclick = function(){
-    $('#cont').load("menu.html");
+    $('#index-content').load("menu.html");
 }
