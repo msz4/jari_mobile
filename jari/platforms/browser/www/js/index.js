@@ -14,7 +14,27 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        $('#index-content').load("menu.html");
+        setPage("menu");
+    },
+
+    hideHeader: function(){
+        const HEADER = document.querySelector(".header");
+        HEADER.style.top = "-4rem";
+    },
+
+    hideFooter: function(){
+        const FOOTER = document.querySelector(".footer");
+        FOOTER.style.bottom = "-4rem";
+    },
+
+    showHeader: function(){
+        const HEADER = document.querySelector(".header");
+        HEADER.style.top = "0";
+    },
+
+    showFooter: function(){
+        const FOOTER = document.querySelector(".footer");
+        FOOTER.style.bottom = "0";
     },
 
     loadSayings: function(tag) {
@@ -24,7 +44,14 @@ var app = {
                 sayings.push(karin_magana[key]["saying"]);
             }
         }
-        console.log(sayings);
+    
+        app.displaySayings(sayings,0);
+    },
+
+    displaySayings:function(sayings, n){
+        $('#index-content').load("magana.html");
+        setTimeout(function(){document.querySelector('#magana').innerHTML = sayings[n];}, 2000);
+        
     }
 };
 
