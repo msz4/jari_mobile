@@ -23,22 +23,37 @@
         </div>
 
         <div id="menu-page" class="page">
-            <div class="tag" id="menu_btn"><i class="fas fa-comment-alt text-light"></i>karin magana</div>
-            <div class="tag" id="tags_btn"><i class="fas fa-tag text-light"></i>ire-ire</div>
-            <div class="tag" id="favourites_btn"><i class="fas fa-star text-light"></i>na gaban goshi</div>
-            <div class="tag" id="about_btn"><i class="fas fa-info-circle text-light"></i>bayanin mu</div>
+            <div class="tag" name ="menu_btn" id="karin_magana" onclick="app.loadPage(this.id)"><i class="fas fa-comment-alt text-light"></i>karin magana</div>
+            <div class="tag" id="ire_ire" ><i class="fas fa-tag text-light"></i>ire-ire</div>
+            <div class="tag" id="na_gaban_goshi"><i class="fas fa-star text-light"></i>na gaban goshi</div>
+            <div class="tag" id="bayanin_mu" ><i class="fas fa-info-circle text-light"></i>bayanin mu</div>
         </div>
 
-        <div id="about-page" class="page">
+        <div id="about-page" class="page hide-page">
             
         </div>
 
-        <div id="ireire-page" class="page">
+        <div id="ireire-page" class="page hide-page">
             
         </div>
 
-        <div id="karinmagana-page" class="page">
-            
+        <div id="karinmagana-page" class="page hide-page">
+            <div class="shadow-sm p-3 mb-5 bg-white rounded" id="magana-content">
+                <div id="favourite">
+                    <i class="far fa-star"></i>
+                </div>
+    
+                <div id="magana">
+                        Zama da maɗaukin kanwa shi ke kawo farin kai.
+                </div>
+                <div>
+                    <span class="tag"><i class="fas fa-tag text-light"></i>zammantakewa</span>
+                    <span class="tag"><i class="fas fa-tag text-light"></i>kai</span>
+                    <span class="tag"><i class="fas fa-tag text-light"></i>hali</span>
+                    <span class="tag"><i class="fas fa-tag text-light"></i>kanwa</span>
+                    <span class="tag"><i class="fas fa-tag text-light"></i>fari</span>
+                </div>
+            </div>
         </div>
 
         <div class="row footer nav">

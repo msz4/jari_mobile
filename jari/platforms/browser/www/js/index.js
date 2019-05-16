@@ -14,7 +14,8 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        setPage("menu");
+        const MAGANA_BTN = document.getElementById("karin_magana");
+        console.log(MAGANA_BTN);
     },
 
     hideHeader: function(){
@@ -35,6 +36,30 @@ var app = {
     showFooter: function(){
         const FOOTER = document.querySelector(".footer");
         FOOTER.style.bottom = "0";
+    },
+
+    loadPage: function(id){
+        console.log('inside');
+        if(id=="karin_magana"){
+            const PAGE_TO_HIDE = document.querySelector('#menu-page');
+            const PAGE_TO_SHOW = document.querySelector('#karinmagana-page');
+            PAGE_TO_SHOW.classList.remove("hide-page");
+            PAGE_TO_HIDE.classList.add("hide-page")
+            app.showFooter();
+            app.showHeader();
+        }
+        else if (id=="ire_ire"){
+            const PAGE_TO_HIDE = document.querySelector('#menu-page');
+            PAGE_TO_HIDE.style.display="none";
+        }
+        else if (id=="na_gaban_goshi"){
+            const PAGE_TO_HIDE = document.querySelector('#menu-page');
+            PAGE_TO_HIDE.style.display="none";
+        }
+        else if (id=="bayanin_mu"){
+            const PAGE_TO_HIDE = document.querySelector('#menu-page');
+            PAGE_TO_HIDE.style.display="none";
+        }
     },
 
     loadSayings: function(tag) {
