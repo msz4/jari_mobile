@@ -1,4 +1,4 @@
-var karin_magana= {
+var maganganu= {
 "1": {"saying":"Ala suturi buƙui, in ji kishiyar mai doro","tag1":"33","tag2":"49","tag3":"63","tag4":"0","tag5":"0","tags":"33,49,63,0,0"},
 "2": {"saying":"Yaya zan yi da abin da ya gagari wuta, in ji kishiyar ƙonanniya","tag1":"33","tag2":"49","tag3":"63","tag4":"16","tag5":"0","tags":"33,49,63,16,0      ","created":"2019-04-22 11:54:43"},
 "3": {"saying":"Ban sa a ka ba, in ji ɓarawon tagiya.","tag1":"33","tag2":"0","tag3":"12","tag4":"82","tag5":"102","tags":"33,0,12,82,0","created":"2019-04-22 11:54:43"},

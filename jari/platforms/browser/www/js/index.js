@@ -47,6 +47,7 @@ var app = {
             PAGE_TO_HIDE.classList.add("hide-page")
             app.showFooter();
             app.showHeader();
+            app.loadAllSayings();
         }
         else if (id=="ire_ire"){
             const PAGE_TO_HIDE = document.querySelector('#menu-page');
@@ -73,10 +74,17 @@ var app = {
         app.displaySayings(sayings,0);
     },
 
+    loadAllSayings: function(){
+        let maganaganu_array = [];
+        for (var key in maganganu){
+            maganaganu_array.push(maganganu[key]);
+        }
+
+        app.displaySayings(maganaganu_array,0);
+    },
+
     displaySayings:function(sayings, n){
-        $('#index-content').load("magana.html");
-        setTimeout(function(){document.querySelector('#magana').innerHTML = sayings[n];}, 2000);
-        
+        document.querySelector('#magana').innerHTML = sayings[n].saying;
     }
 };
 
