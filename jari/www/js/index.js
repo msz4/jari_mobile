@@ -1,3 +1,6 @@
+var maganganu_array = Object.values(maganganu);
+var ireire_array = Object.values(ire_ire);
+var index=0;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -41,13 +44,19 @@ var app = {
     loadPage: function(id){
         console.log('inside');
         if(id=="karin_magana"){
-            const PAGE_TO_HIDE = document.querySelector('#menu-page');
-            const PAGE_TO_SHOW = document.querySelector('#karinmagana-page');
-            PAGE_TO_SHOW.classList.remove("hide-page");
-            PAGE_TO_HIDE.classList.add("hide-page")
+            app.showPage("#karinmagana-page");
+            app.hidePage("#menu-page");
             app.showFooter();
             app.showHeader();
-            app.loadAllSayings();
+            app.display();
+        }
+        else if (id=="menu"){
+            app.showPage("#menu-page");
+            app.hidePage("#ireire-page");
+            app.hidePage("#about-page");
+            app.hidePage("#karinmagana-page");
+            app.hideFooter();
+            app.hideHeader();
         }
         else if (id=="ire_ire"){
             const PAGE_TO_HIDE = document.querySelector('#menu-page');
@@ -63,6 +72,25 @@ var app = {
         }
     },
 
+    randomise: function(){
+        const MIN=0; 
+        const MAX=257;  
+        let random = Math.floor(Math.random() * (+MAX - +MIN)) + +MIN;
+        console.log(random);
+        index=random;
+        app.display();
+    },
+
+    hidePage: function(page){
+        const PAGE_TO_HIDE = document.querySelector(page);
+        PAGE_TO_HIDE.classList.add("hide-page")
+    },
+
+    showPage: function(page){
+        const PAGE_TO_SHOW = document.querySelector(page);
+        PAGE_TO_SHOW.classList.remove("hide-page");
+    },
+
     loadSayings: function(tag) {
         let sayings =[];
         for (var key in karin_magana) {
@@ -75,16 +103,37 @@ var app = {
     },
 
     loadAllSayings: function(){
-        let maganaganu_array = [];
-        for (var key in maganganu){
-            maganaganu_array.push(maganganu[key]);
-        }
-
-        app.displaySayings(maganaganu_array,0);
+        
     },
 
-    displaySayings:function(sayings, n){
-        document.querySelector('#magana').innerHTML = sayings[n].saying;
+    displayNext:function(){
+        if(index<maganganu_array.length-1){
+            index++;
+            app.display();
+        }
+    },
+    
+    displayPrevious:function(){
+        if(index>0){
+            index--;
+            app.display();
+        }
+    },
+
+    display: function(){
+        document.querySelector('#magana').innerHTML = maganganu_array[index].saying;
+        let saying_array=Object.values(maganganu_array[index]);
+        let tags="";
+        console.log(saying_array);
+        for(let i=1; i<6; i++){
+            if (saying_array[i]!=0){
+                console.log(saying_array[i])
+                tags+="<span class='tag'><i class='fas fa-tag text-light'></i>"+saying_array[i]+"</span>";
+            }
+        }
+
+        document.querySelector("#count").innerHTML = `${index+1}/${maganganu_array.length}`;
+        document.querySelector('#irin_magana').innerHTML = tags;
     }
 };
 

@@ -15,7 +15,7 @@
     <body>
         <div class="row header nav">
             <div class="col-2 home">
-                <i class="fas fa-arrow-left" id ="back_btn"></i>
+                <i class="fas fa-arrow-left" id ="back_btn" onclick="app.loadPage('menu')"></i>
             </div>
 
             <div class="col-10 header-text">
@@ -39,13 +39,19 @@
 
         <div id="karinmagana-page" class="page hide-page">
             <div class="shadow-sm p-3 mb-5 bg-white rounded" id="magana-content">
-                <div id="favourite">
-                    <i class="far fa-star"></i>
+                <div class="row">
+                    <div class="col-6" id="count">
+                        
+                    </div>
+                    <div class="col-6" id="favourite">
+                        <i class="far fa-star"></i>
+                    </div>
                 </div>
+                
     
                 <div id="magana">
                 </div>
-                <div>
+                <div id="irin_magana">
                     <span class="tag"><i class="fas fa-tag text-light"></i>zammantakewa</span>
                     <span class="tag"><i class="fas fa-tag text-light"></i>kai</span>
                     <span class="tag"><i class="fas fa-tag text-light"></i>hali</span>
@@ -56,10 +62,10 @@
         </div>
 
         <div class="row footer nav">
-            <div class="col-3 tags"><i class="fas fa-tags"></i></div>
-            <div class="col-3 previous"><i class="fas fa-step-backward"></i></div>
-            <div class="col-3 next"><i class="fas fa-step-forward"></i></div>
-            <div class="col-3 random"><i class="fas fa-random"></i></div>
+            <div class="col-3" id="tags_nav"><i class="fas fa-tags"></i></div>
+            <div class="col-3" id="previous_nav" onclick="app.displayPrevious()"><i class="fas fa-step-backward"></i></div>
+            <div class="col-3" id="next_nav" onclick="app.displayNext()"><i class="fas fa-step-forward"></i></div>
+            <div class="col-3" id="random_nav" onclick="app.randomise()"><i class="fas fa-random"></i></div>
         </div>
 
     </body>
