@@ -1,4 +1,5 @@
 var maganganu_array = Object.values(maganganu);
+var ireire_array = [];
 var index=0;
 var app = {
     // Application Constructor
@@ -16,8 +17,17 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+        app.createIreireArray();
         const MAGANA_BTN = document.getElementById("karin_magana");
-        console.log(MAGANA_BTN);
+    },
+
+    createIreireArray: function(){
+        for(var iri in ire_ire){
+            if(ire_ire.hasOwnProperty(iri)){
+                ireire_array.push(ire_ire[iri])
+            }
+        }
+        ireire_array = ireire_array.sort();
     },
 
     hideHeader: function(){
@@ -41,7 +51,6 @@ var app = {
     },
 
     loadPage: function(id){
-        console.log('inside');
         if(id=="karin_magana"){
             app.showPage("#karinmagana-page");
             app.hidePage("#menu-page");
@@ -58,8 +67,12 @@ var app = {
             app.hideHeader();
         }
         else if (id=="ire_ire"){
-            const PAGE_TO_HIDE = document.querySelector('#menu-page');
-            PAGE_TO_HIDE.style.display="none";
+            app.showPage("#ireire-page");
+            app.hidePage("#menu-page");
+            app.hidePage("#about-page");
+            app.hidePage("#karinmagana-page");
+            app.showHeader();
+            app.displayIreire();
         }
         else if (id=="na_gaban_goshi"){
             const PAGE_TO_HIDE = document.querySelector('#menu-page');
@@ -71,11 +84,18 @@ var app = {
         }
     },
 
+    displayIreire: function(){
+        let tags="";
+        for (var key in ire_ire) {
+            tags+= "<div class='tag' id="+key+" onclick='app.loadSayings(this.id)'><i class='fas fa-tag text-white'></i>"+ire_ire[key]['hausa']+"</div>";
+        }
+        document.querySelector('#ireire-page').innerHTML= tags;
+    },
+
     randomise: function(){
         const MIN=0; 
         const MAX=257;  
         let random = Math.floor(Math.random() * (+MAX - +MIN)) + +MIN;
-        console.log(random);
         index=random;
         app.display();
     },
@@ -91,13 +111,14 @@ var app = {
     },
 
     loadSayings: function(tag) {
+        console.log(maganganu_array);
         let sayings =[];
-        for (var key in karin_magana) {
-            if ((karin_magana[key]["tag1"]==""+tag+"")||(karin_magana[key]["tag2"]==""+tag+"")||(karin_magana[key]["tag3"]==""+tag+"")||(karin_magana[key]["tag4"]==""+tag+"")||(karin_magana[key]["tag5"]==""+tag+"")) {
-                sayings.push(karin_magana[key]["saying"]);
+        maganganu_array.forEach(magana => {
+            if ((magana["tag1"]==""+tag+"")||(magana["tag2"]==""+tag+"")||(magana["tag3"]==""+tag+"")||(magana["tag4"]==""+tag+"")||(magana["tag5"]==""+tag+"")) {
+                sayings.push(magana["saying"]);
             }
-        }
-    
+        });
+        console.log(sayings);
         app.displaySayings(sayings,0);
     },
 
@@ -123,10 +144,8 @@ var app = {
         document.querySelector('#magana').innerHTML = maganganu_array[index].saying;
         let saying_array=Object.values(maganganu_array[index]);
         let tags="";
-        console.log(saying_array);
         for(let i=1; i<6; i++){
             if (saying_array[i]!=0){
-                console.log(saying_array[i])
                 tags+="<span class='tag'><i class='fas fa-tag text-light'></i>"+saying_array[i]+"</span>";
             }
         }
