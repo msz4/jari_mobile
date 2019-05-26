@@ -38,8 +38,11 @@ i{
     text-align: right;
 }
 
-#ireire-content{
+#ireire-page{
     margin-top:4rem;
+    display: grid;
+    grid-template-columns: auto;
+    grid-column-gap: 10px;
 }
 
 #count{

@@ -87,10 +87,16 @@ var app = {
 
     displayIreire: function(){
         let tags="";
-        for (var key in ire_ire) {
-            tags+= "<div class='tag' id="+key+" onclick='app.loadSayings(this.id)'><i class='fas fa-tag text-white'></i>"+ire_ire[key]['hausa']+"</div>";
-        }
-        document.querySelector('#ireire-page').innerHTML= tags;
+        ireire_Array.sort(function(a,b) {
+            let x = a.iri.toLowerCase();
+            let y = b.iri.toLowerCase();
+            return x < y ? -1 : x > y ? 1 : 0;
+        });
+        console.log(ireire_Array);
+        ireire_Array.forEach(function(item){
+            tags+= "<div class='tag' id="+item.id+" onclick='app.loadSayings(this.id)'><i class='fas fa-tag text-white'></i>"+item.iri+"</div>";
+       })  
+            document.querySelector('#ireire-page').innerHTML= tags;
     },
 
     randomise: function(){
