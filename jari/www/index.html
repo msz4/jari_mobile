@@ -15,16 +15,16 @@
     <body>
         <div class="row header nav">
             <div class="col-2 home">
-                <i class="fas fa-arrow-left" id ="back_btn" onclick="app.loadPage('menu')"></i>
+                <i class="fas fa-arrow-left" id ="back_btn"></i>
             </div>
 
-            <div class="col-10 header-text">
+            <div class="col-10" id="header-text">
             </div>
         </div>
 
         <div id="menu-page" class="page">
-            <div class="tag" name ="menu_btn" id="karin_magana" onclick="app.loadPage(this.id)"><i class="fas fa-comment-alt text-light"></i>karin magana</div>
-            <div class="tag" id="ire_ire" onclick="app.loadPage(this.id)" ><i class="fas fa-tag text-light"></i>ire-ire</div>
+            <div class="tag" name ="menu_btn" id="karin_magana" onclick="app.viewAll()"><i class="fas fa-comment-alt text-light"></i>karin magana</div>
+            <div class="tag" id="ire_ire" onclick="app.viewTags()" ><i class="fas fa-tag text-light"></i>ire-ire</div>
             <div class="tag" id="na_gaban_goshi"><i class="fas fa-star text-light"></i>na gaban goshi</div>
             <div class="tag" id="bayanin_mu" ><i class="fas fa-info-circle text-light"></i>bayanin mu</div>
         </div>
@@ -62,7 +62,7 @@
         </div>
 
         <div class="row footer nav">
-            <div class="col-3" id="tags_nav"><i class="fas fa-tags"></i></div>
+            <div class="col-3" id="tags_nav" onclick="app.viewTags()"><i class="fas fa-tags"></i></div>
             <div class="col-3" id="previous_nav" onclick="app.displayPrevious()"><i class="fas fa-step-backward"></i></div>
             <div class="col-3" id="next_nav" onclick="app.displayNext()"><i class="fas fa-step-forward"></i></div>
             <div class="col-3" id="random_nav" onclick="app.randomise()"><i class="fas fa-random"></i></div>

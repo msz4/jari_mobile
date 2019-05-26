@@ -1,7 +1,6 @@
-var maganganu_array = Object.values(maganganu);
-var maganganun_iri_array = [];
-var ireire_array = [];
-var index=0;
+var current_array = [];
+var index_store= localStorage.getItem("index");
+var index = 0;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -18,17 +17,6 @@ var app = {
 
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        app.createIreireArray();
-        const MAGANA_BTN = document.getElementById("karin_magana");
-    },
-
-    createIreireArray: function(){
-        for(var iri in ire_ire){
-            if(ire_ire.hasOwnProperty(iri)){
-                ireire_array.push(ire_ire[iri])
-            }
-        }
-        ireire_array = ireire_array.sort();
     },
 
     hideHeader: function(){
@@ -51,12 +39,27 @@ var app = {
         FOOTER.style.bottom = "0";
     },
 
+    viewAll: function(){
+        current_array = maganganu.slice(0)
+        document.querySelector("#back_btn").setAttribute("onclick", "app.loadPage('menu')")
+        document.querySelector('#header-text').innerHTML = "Karin Magana";
+        app.loadPage("karin_magana")
+    },
+
+    viewTags: function(){
+        document.querySelector("#back_btn").setAttribute("onclick", "app.loadPage('menu')")
+        document.querySelector('#header-text').innerHTML = "Ire ire";
+        app.loadPage("ire_ire");
+    },
+
     loadPage: function(id){
         if(id=="karin_magana"){
             app.showPage("#karinmagana-page");
             app.hidePage("#menu-page");
+            app.hidePage("#ireire-page");
             app.showFooter();
             app.showHeader();
+            index=0;
             app.display();
         }
         else if (id=="menu"){
@@ -73,6 +76,7 @@ var app = {
             app.hidePage("#about-page");
             app.hidePage("#karinmagana-page");
             app.showHeader();
+            app.hideFooter();
             app.displayIreire();
         }
         else if (id=="na_gaban_goshi"){
@@ -94,14 +98,14 @@ var app = {
         });
         console.log(ireire_Array);
         ireire_Array.forEach(function(item){
-            tags+= "<div class='tag' id="+item.id+" onclick='app.loadSayings(this.id)'><i class='fas fa-tag text-white'></i>"+item.iri+"</div>";
+            tags+= "<div class='tag' id="+item.id+" onclick='app.getIrinMagana(this.id)'><i class='fas fa-tag text-white'></i>"+item.iri+"</div>";
        })  
             document.querySelector('#ireire-page').innerHTML= tags;
     },
 
     randomise: function(){
         const MIN=0; 
-        const MAX=257;  
+        const MAX=current_array.length;  
         let random = Math.floor(Math.random() * (+MAX - +MIN)) + +MIN;
         index=random;
         app.display();
@@ -117,24 +121,24 @@ var app = {
         PAGE_TO_SHOW.classList.remove("hide-page");
     },
 
-    loadSayings: function(tag) {
-        console.log(maganganu_array);
+    getIrinMagana: function(tag) {
         let sayings =[];
-        maganganu_array.forEach(magana => {
+        maganganu.forEach(magana => {
             if ((magana["tag1"]==""+tag+"")||(magana["tag2"]==""+tag+"")||(magana["tag3"]==""+tag+"")||(magana["tag4"]==""+tag+"")||(magana["tag5"]==""+tag+"")) {
-                sayings.push(magana["saying"]);
+                sayings.push(magana);
             }
         });
-        console.log(sayings);
-        app.displaySayings(sayings,0);
-    },
 
-    loadAllSayings: function(){
-        
+        if(sayings.length>0){
+            current_array = sayings.slice(0);
+            document.querySelector("#back_btn").setAttribute("onclick", "app.viewTags()");
+            document.querySelector("#header-text").innerHTML = ":"+ireire_Object[tag]["hausa"]
+            app.loadPage("karin_magana");
+        }
     },
 
     displayNext:function(){
-        if(index<maganganu_array.length-1){
+        if(index<current_array.length-1){
             index++;
             app.display();
         }
@@ -148,16 +152,16 @@ var app = {
     },
 
     display: function(){
-        document.querySelector('#magana').innerHTML = maganganu_array[index].saying;
-        let saying_array=Object.values(maganganu_array[index]);
+        document.querySelector('#magana').innerHTML = current_array[index].saying;
+        let saying_array=Object.values(current_array[index]);
         let tags="";
         for(let i=1; i<6; i++){
             if (saying_array[i]!=0){
-                tags+="<span class='tag'><i class='fas fa-tag text-light'></i>"+saying_array[i]+"</span>";
+                tags+="<span class='tag' onclick='app.getIrinMagana("+saying_array[i]+")'><i class='fas fa-tag text-light'></i>"+ireire_Object[saying_array[i]]["hausa"]+"</span>";
             }
         }
 
-        document.querySelector("#count").innerHTML = `${index+1}/${maganganu_array.length}`;
+        document.querySelector("#count").innerHTML = `${index+1}/${current_array.length}`;
         document.querySelector('#irin_magana').innerHTML = tags;
     }
 };
