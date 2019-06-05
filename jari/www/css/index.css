@@ -1,3 +1,4 @@
+
 .page{
     position: absolute;
     display: flex;
@@ -28,7 +29,10 @@ i{
     font-size: 1.2em;
     padding-top:0.2em;
     padding-bottom: 0.2em;
-    color: #2D3142;
+}
+
+i:hover, i:active{
+    color: #EF4E09;
 }
 .row{
     margin:0;
@@ -46,7 +50,7 @@ i{
 }
 
 #count{
-    text-align:left;
+    text-align:right;
 }
 
 #favourite{
@@ -81,11 +85,16 @@ i{
 }
 
 #magana-content{
-    box-shadow:0px 1px 10px 0px #dddddd;
+    box-shadow:0px 1px 3px 0px #5f5f5f;
     margin:1em;
     padding:1em;
     width:90%;
+    background-color: #EDF4ED;
     border-radius:5px;
+}
+
+#app-title{
+    margin-bottom: 1rem;
 }
 
 
@@ -108,6 +117,8 @@ i{
     padding-top:0.25em;
     padding-bottom:0.25em;
     font-size:1.5em; 
+    background-color:#2D3142;
+    color:white;
 }
 
 .footer{
@@ -116,4 +127,11 @@ i{
     padding-bottom:1em;
     color: white;
     text-align: center;
+    background-color:#2D3142;
+}
+
+@media (min-device-width: 769px) {
+  html{
+    font-size: 3vw;
+  }
 }
