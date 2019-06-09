@@ -40,14 +40,13 @@ var app = {
     },
 
     viewAll: function(){
+        localStorage.setItem('all',true);
         current_array = maganganu.slice(0)
-        document.querySelector("#back_btn").setAttribute("onclick", "app.loadPage('menu')")
-        document.querySelector('#header-text').innerHTML = "Karin Magana";
+        document.querySelector('#header-text').innerHTML = "karin magana";
         app.loadPage("karin_magana")
     },
 
     viewTags: function(){
-        document.querySelector("#back_btn").setAttribute("onclick", "app.loadPage('menu')")
         document.querySelector('#header-text').innerHTML = "Ire ire";
         app.loadPage("ire_ire");
     },
@@ -57,13 +56,21 @@ var app = {
             app.showPage("#karinmagana-page");
             app.hidePage("#menu-page");
             app.hidePage("#ireire-page");
+            app.hidePage('#menu-footer');
             app.showFooter();
             app.showHeader();
-            index=0;
+            if((localStorage.getItem('all')=="true")){
+                index=Number(localStorage.getItem('index'));
+            }
+            else{
+                index=0;
+            }
+            console.log('index before: ',localStorage.getItem('index'))
             app.display();
         }
         else if (id=="menu"){
             app.showPage("#menu-page");
+            app.showPage('#menu-footer');
             app.hidePage("#ireire-page");
             app.hidePage("#about-page");
             app.hidePage("#karinmagana-page");
@@ -73,6 +80,7 @@ var app = {
         else if (id=="ire_ire"){
             app.showPage("#ireire-page");
             app.hidePage("#menu-page");
+            app.hidePage('#menu-footer');
             app.hidePage("#about-page");
             app.hidePage("#karinmagana-page");
             app.showHeader();
@@ -130,6 +138,7 @@ var app = {
         });
 
         if(sayings.length>0){
+            localStorage.setItem('all', false);
             current_array = sayings.slice(0);
             document.querySelector("#back_btn").setAttribute("onclick", "app.viewTags()");
             document.querySelector("#header-text").innerHTML = ":"+ireire_Object[tag]["hausa"]
@@ -160,9 +169,18 @@ var app = {
                 tags+="<span class='tag' onclick='app.getIrinMagana("+saying_array[i]+")'><i class='fas fa-tag text-light'></i>"+ireire_Object[saying_array[i]]["hausa"]+"</span>";
             }
         }
-
         document.querySelector("#count").innerHTML = `${index+1}/${current_array.length}`;
         document.querySelector('#irin_magana').innerHTML = tags;
+        app.updateIndex();
+    },
+
+    updateIndex: function(){
+        if( localStorage.getItem('all')=="true"){
+            console.log('inside')
+            localStorage.setItem('index', index);
+        }
+        console.log('index: ',index)
+        console.log('index after: ',localStorage.getItem('index'))
     }
 };
 

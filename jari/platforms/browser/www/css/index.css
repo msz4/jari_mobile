@@ -1,4 +1,20 @@
+/****************************************************************
+ Custom font from google fonts 
+ *****************************************************************/
+@font-face {
+    font-family: cutive;
+    src: url(../webfonts/cutive.ttf);
+  }
 
+.page, .header, .footer, #menu-footer{
+    font-family: 'cutive', sans-serif;
+}
+
+
+/***************************************************************************
+ Each page is a view that appears when a requested, otherwise it's hidden.
+ The whole app is a single html page with absolute divs acting as pages
+ **************************************************************************/
 .page{
     position: absolute;
     display: flex;
@@ -6,8 +22,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width:100vw;
-    height: 100vh;
+    background-color: #F1F2EB;
+    min-width:100vw;
+    min-height: 100vh;
     padding:0;
     margin:0;
 }
@@ -19,12 +36,7 @@
     height:0;
     overflow: hidden;
 }
-#menu-page{
-    z-index:10000;
-    transition: 2s all;
-    height: 100vh;
-    width:100vw;
-}
+
 i{
     font-size: 1.2em;
     padding-top:0.2em;
@@ -34,30 +46,16 @@ i{
 i:hover, i:active{
     color: #EF4E09;
 }
-.row{
-    margin:0;
-}
 
-.tag-text{
-    text-align: right;
-}
-
-#ireire-page{
-    margin-top:4rem;
-    display: grid;
-    grid-template-columns: auto;
-    grid-column-gap: 10px;
-}
-
-#count{
-    text-align:right;
-}
-
-#favourite{
-    text-align:right;
-}
-.tags-links{
-    padding-top:2em;
+.tag{
+    background-color:#2D3142;
+    color:white;
+    font-size:1em;
+    padding:0.3em;
+    margin:5px 5px 5px 0;
+    border-radius:3px;
+    cursor:pointer;
+    display:inline-block;
 }
 
 .fa-tag{
@@ -65,37 +63,75 @@ i:hover, i:active{
     padding-right:2px;
 }
 
-.tag{
-    background-color:#2D3142;
-    color:white;
-    font-size:1em;
-    padding:2px 6px 2px 6px;
-    margin:5px 5px 5px 0;
-    border-radius:3px;
-    cursor:pointer;
-    display:inline-block;
-}
 
-#magana{
-    font-size:1.5em;
-}
-
-#header-text{
-    text-align: right;
-}
-
-#magana-content{
-    box-shadow:0px 1px 3px 0px #5f5f5f;
-    margin:1em;
-    padding:1em;
-    width:90%;
-    background-color: #EDF4ED;
-    border-radius:5px;
+/************ Begin Menu Page *********************************************************/
+#menu-page{
+    z-index:10000;
+    transition: 2s all;
 }
 
 #app-title{
     margin-bottom: 1rem;
 }
+
+#app-title h1{
+    border-top: 0.1em solid #EF4E09;
+    border-bottom: 0.1em solid #EF4E09;
+    padding-bottom:0.2em;
+    color: #2D3142;
+}
+
+.menu-tag{
+    background-color:#2D3142;
+    margin: 0.5em;
+    font-size:1.5em;
+    padding:0.2em 0.1em 0.2em 0.1em;
+    min-width:80%;
+    color:white;
+    border-radius: 5px;
+}
+
+#menu-footer{
+    position: absolute;
+    width: 100%;
+    background-color: #F1F2EB;
+    color: #2D3142;
+    bottom:0;
+    padding: 0.1em;
+    box-shadow: 0 3px 5px 0px #2D3142;
+}
+/************ End Menu Page *********************************************************/
+
+
+
+
+/************ Begin Karin Magana Page *********************************************************/
+#magana{
+    font-size:1.5em;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+#magana-content{
+    width:90%;
+}
+
+#count{
+    text-align:right;
+}
+/************ End Karin Magana Page *********************************************************/
+
+
+
+/************ Begin Ire ire Page *********************************************************/
+#ireire-page{
+    padding-top:4rem;
+    display: grid;
+    grid-template-columns: auto;
+    grid-column-gap: 10px;
+}
+/************ End Ire ire Page *********************************************************/
+
 
 
 /***********************************************************
@@ -121,6 +157,10 @@ i:hover, i:active{
     color:white;
 }
 
+#header-text{
+    text-align: right;
+}
+
 .footer{
     bottom: -4rem;
     padding-top:1em;
@@ -130,7 +170,12 @@ i:hover, i:active{
     background-color:#2D3142;
 }
 
-@media (min-device-width: 769px) {
+
+
+/*************************************************************************
+                            Media QUeries 
+**************************************************************************/
+@media (min-device-width: 769px) and (orientation: portrait) {
   html{
     font-size: 3vw;
   }

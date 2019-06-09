@@ -10,12 +10,12 @@
         <link rel="stylesheet" href="css/fontawesome-all.css">
         <script src="ire_ire.js"></script>
         <script src="karin_magana.js"></script>
-        <title>Jari</title>
+        <title>jari</title>
     </head>
     <body>
         <div class="row header nav">
-            <div class="col-2 home">
-                <i class="fas fa-arrow-left" id ="back_btn"></i>
+            <div class="col-2 home" onclick="app.loadPage('menu')">
+                <i class="fas fa-home" id ="back_btn"></i>
             </div>
 
             <div class="col-10" id="header-text">
@@ -23,11 +23,17 @@
         </div>
 
         <div id="menu-page" class="page">
-            <div id = "app-title"><h1>Jari</h1></div>
-            <div class="tag" name ="menu_btn" id="karin_magana" onclick="app.viewAll()"><i class="fas fa-comment-alt text-light"></i>Karin Magana</div>
-            <div class="tag" id="ire_ire" onclick="app.viewTags()" ><i class="fas fa-tag text-light"></i>Ire-ire</div>
-            <div class="tag" id="bayanin_mu" ><i class="fas fa-info-circle text-light"></i>Bayanin Mu</div>
+            <div id = "app-title"><h1>jari</h1></div>
+            <div class="menu-tag" name ="menu_btn" id="karin_magana" onclick="app.viewAll()"><div><i class="fas fa-comment-alt text-light"></i></div>karin magana</div>
+            <div class="menu-tag" id="ire_ire" onclick="app.viewTags()" ><div><i class="fas fa-tag text-light"></i></div>ire-ire</div>
+            <!-- <div class="menu-tag" id="bayanin_mu" ><div><i class="fas fa-info-circle text-light"></i></div>Bayanin Mu</div>
+             -->
+            <div id="menu-footer">
+            jari © 2019 iidea
+            </div>
         </div>
+
+        
 
         <div id="about-page" class="page hide-page">
             
@@ -39,7 +45,7 @@
 
         <div id="karinmagana-page" class="page hide-page">
             <div class="rounded" id="magana-content">
-                <div class="row">
+                <div class="details row">
                     <div class="col-12" id="count">
                         
                     </div>
@@ -49,11 +55,6 @@
                 <div id="magana">
                 </div>
                 <div id="irin_magana">
-                    <span class="tag"><i class="fas fa-tag text-light"></i>zammantakewa</span>
-                    <span class="tag"><i class="fas fa-tag text-light"></i>kai</span>
-                    <span class="tag"><i class="fas fa-tag text-light"></i>hali</span>
-                    <span class="tag"><i class="fas fa-tag text-light"></i>kanwa</span>
-                    <span class="tag"><i class="fas fa-tag text-light"></i>fari</span>
                 </div>
             </div>
         </div>
