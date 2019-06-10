@@ -71,13 +71,13 @@ i:hover, i:active{
 }
 
 #app-title{
-    margin-bottom: 1rem;
+    margin: 1rem;
 }
 
 #app-title h1{
     border-top: 0.1em solid #EF4E09;
     border-bottom: 0.1em solid #EF4E09;
-    padding-bottom:0.2em;
+    padding:0.2em;
     color: #2D3142;
 }
 
@@ -151,7 +151,6 @@ i:hover, i:active{
 .header{
     top:  -4rem;
     padding-top:0.25em;
-    padding-bottom:0.25em;
     font-size:1.5em; 
     background-color:#2D3142;
     color:white;
